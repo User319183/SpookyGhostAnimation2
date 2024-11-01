@@ -2,10 +2,8 @@ html {
 	background: #4e0e00;
 }
 
-/*Bonus*/
 html:hover .spider {
 	top: -120%;
-
 }
 
 .spider {
@@ -13,12 +11,8 @@ html:hover .spider {
 	display: inline-block;
 	top: 0;
 	left: 30%;
-
-	/*4. Animate*/
-	animation: swing 2s infinite;
+	animation: swing 2s infinite ease-in-out;
 	transform-origin: top;
-
-	/*Bonus*/
 	transition: 1s ease-in-out;
 }
 
@@ -37,6 +31,28 @@ html:hover .spider {
 	border-radius: 50%;
 }
 
+@keyframes weirdEyeMovement {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	25% {
+		transform: translateX(10px) translateY(-10px);
+	}
+	50% {
+		transform: translateX(-10px) translateY(10px);
+	}
+	75% {
+		transform: translateX(10px) translateY(10px);
+	}
+	100% {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+.spider .body .eye {
+	animation: weirdEyeMovement 2s infinite;
+}
+
 .spider .body .eye {
 	width: 33px;
 	height: 33px;
@@ -44,6 +60,7 @@ html:hover .spider {
 	bottom: 20px;
 	background: #fff;
 	border-radius: 50%;
+	animation: weirdEyeMovement 2s infinite;
 }
 
 .spider .body .eye.left {
@@ -62,8 +79,6 @@ html:hover .spider {
 	display: block;
 	margin: 55%;
 	border-radius: 50%;
-
-	/*3. Animate*/
 	animation: look 8s infinite;
 }
 
@@ -115,29 +130,37 @@ html:hover .spider {
 	transform: rotate(50deg);
 	margin-left: -30px;
 }
-
-/*1.Animate*/
 @keyframes look {
-    0%,
-    40%,
-    100% {
-        transform: translateX(0) rotate(0);
-    }
+	0%,
+	40%,
+	100% {
+		transform: translateX(0) rotate(0);
+	}
 
-    45%,
-    95% {
-        transform: translateX(-110%) rotate(360deg);
-    }
+	45%,
+	95% {
+		transform: translateX(-110%) rotate(360deg);
+	}
 }
-
-/*3. Animatie*/
 @keyframes swing {
-    0%,
-    100% {
-        transform: rotate(0);
-    }
-
-    50% {
-        transform: rotate(20deg);
-    }
+	0% {
+		transform: rotate(0);
+		transform-origin: top;
+	}
+	25% {
+		transform: rotate(15deg);
+		transform-origin: top;
+	}
+	50% {
+		transform: rotate(-15deg);
+		transform-origin: top;
+	}
+	75% {
+		transform: rotate(10deg);
+		transform-origin: top;
+	}
+	100% {
+		transform: rotate(0);
+		transform-origin: top;
+	}
 }
